@@ -1,0 +1,233 @@
+:root {
+  --pri: #f8f4e1;
+  --sec: #381c0a;
+  --tri1: #feba17;
+  --tri2: #74512d;
+  --red: red;
+}
+@font-face {
+  font-family: bold;
+  src: url(./aeonik-bold.ttf);
+}
+@font-face {
+  font-family: normal;
+  src: url(./fonnts.com-Aeonik-Regular.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: normal;
+  color: var(--pri);
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--sec);
+  nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--tri2);
+  }
+  section.allElems {
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    // justify-content: space-around;
+    gap: 12px;
+    .elem {
+      background-color: var(--tri1);
+      height: 250px;
+      width: 230px;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      transition: all ease 0.2s;
+      cursor: pointer;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      h2 {
+        position: absolute;
+        bottom: 4%;
+        right: 5%;
+        font-weight: 500;
+        font-size: 24px;
+        font-family: normal;
+      }
+    }
+    .elem:active {
+      scale: 0.97;
+    }
+  }
+  section.fullElem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+    padding: 30px;
+    display: none;
+    h1 {
+      font-size: 3vw;
+      color: var(--tri1);
+      font-family: normal;
+    }
+    button.back {
+      position: absolute;
+      right: 5%;
+      border: none;
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 20px;
+      font-weight: 500;
+      background-color: var(--red);
+      cursor: pointer;
+    }
+    button.back:active {
+      scale: 0.96;
+    }
+    .todo-container {
+      height: 80%;
+      width: 100%;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .addTask {
+        width: 33%;
+        background-color: var(--tri2);
+        border-radius: 5px;
+        height: 100%;
+        // overflow: hidden;
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px;
+          input#task-input {
+            padding: 8px 25px;
+            width: 100%;
+            font-size: 20px;
+            background-color: var(--pri);
+            color: var(--sec);
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            margin-bottom: 10px;
+          }
+          textarea {
+            padding: 8px 25px;
+            width: 100%;
+            font-size: 20px;
+            background-color: var(--pri);
+            color: var(--sec);
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            // margin-bottom: 10px;
+          }
+          button {
+            padding: 8px 25px;
+            width: 100%;
+            font-size: 18px;
+            background-color: var(--tri1);
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            // margin-bottom: 10px;
+            font-family: normal;
+            font-weight: 600;
+            transition: all ease 0.3s;
+            cursor: pointer;
+          }
+          button:active {
+            scale: 0.96;
+          }
+          .mark-imp {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px 2px;
+            width: 100%;
+            gap: 10px;
+            input {
+              scale: 1.2;
+              cursor: pointer;
+            }
+            label {
+              font-size: 15px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .allTask {
+        width: 65%;
+        background-color: var(--tri2);
+        border-radius: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        overflow: auto;
+        .task {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          background-color: var(--pri);
+          padding: 8px 30px;
+          border-radius: 3px;
+          margin-bottom: 10px;
+          h5 {
+            color: var(--sec);
+            font-size: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            span{
+              font-size: 12px;
+              background-color: var(--red);
+              color: var(--pri);
+              padding: 2px 7px;
+              border-radius:3px;
+            }
+            span.true{
+              opacity: 1;
+            }
+            span.false{
+              opacity: 0;
+            }
+          }
+          button {
+            padding: 8px 10px;
+            background-color: green;
+            font-size: 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: none;
+            transition: all ease 0.3s;
+            cursor: pointer;
+          }
+          button:active {
+            scale: 0.97;
+          }
+        }
+      }
+    }
+  }
+}
