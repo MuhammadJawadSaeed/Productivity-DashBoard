@@ -4,6 +4,8 @@
   --tri1: #feba17;
   --tri2: #74512d;
   --red: red;
+  --green: rgb(9, 138, 89);
+  --blue: rgb(0, 191, 225);
 }
 
 @font-face {
@@ -33,23 +35,27 @@ html {
   height: 100%;
   background-color: var(--sec);
 }
-#main nav {
-  position: fixed;
-  width: 100%;
-  height: 60px;
-  background-color: var(--tri2);
-}
 #main section.allElems {
   height: 100%;
   width: 100%;
   padding: 40px;
-  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+#main section.allElems header {
+  width: 100%;
+  height: 45%;
+  background-color: var(--tri2);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+#main section.allElems .allFeatures {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 12px;
 }
-#main section.allElems .elem {
+#main section.allElems .allFeatures .elem {
   background-color: var(--tri1);
   height: 250px;
   width: 230px;
@@ -60,13 +66,13 @@ html {
   cursor: pointer;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
-#main section.allElems .elem img {
+#main section.allElems .allFeatures .elem img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
 }
-#main section.allElems .elem h2 {
+#main section.allElems .allFeatures .elem h2 {
   position: absolute;
   bottom: 4%;
   right: 5%;
@@ -74,7 +80,7 @@ html {
   font-size: 24px;
   font-family: normal;
 }
-#main section.allElems .elem:active {
+#main section.allElems .allFeatures .elem:active {
   scale: 0.97;
 }
 #main section.fullElem {
@@ -85,7 +91,7 @@ html {
   display: none;
 }
 #main section.fullElem h1 {
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: var(--tri1);
   font-family: normal;
 }
@@ -95,13 +101,13 @@ html {
   border: none;
   border-radius: 3px;
   padding: 6px 8px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   background-color: var(--red);
   cursor: pointer;
 }
 #main section.fullElem button.back:active {
-  scale: 0.96;
+  scale: 0.95;
 }
 #main section.fullElem .todo-container {
   height: 80%;
@@ -124,9 +130,9 @@ html {
   padding: 20px;
 }
 #main section.fullElem .todo-container .addTask form input#task-input {
-  padding: 8px 25px;
+  padding: 10px 25px;
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   background-color: var(--pri);
   color: var(--sec);
   border-radius: 3px;
@@ -135,9 +141,9 @@ html {
   margin-bottom: 10px;
 }
 #main section.fullElem .todo-container .addTask form textarea {
-  padding: 8px 25px;
+  padding: 10px 25px;
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   background-color: var(--pri);
   color: var(--sec);
   border-radius: 3px;
@@ -147,13 +153,12 @@ html {
 #main section.fullElem .todo-container .addTask form button {
   padding: 8px 25px;
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   background-color: var(--tri1);
   border-radius: 3px;
   border: none;
   outline: none;
   font-family: normal;
-  font-weight: 600;
   transition: all ease 0.3s;
   cursor: pointer;
 }
@@ -199,7 +204,7 @@ html {
 }
 #main section.fullElem .todo-container .allTask .task h5 {
   color: var(--sec);
-  font-size: 30px;
+  font-size: 22px;
   display: flex;
   align-items: flex-start;
   gap: 5px;
@@ -229,4 +234,178 @@ html {
 }
 #main section.fullElem .todo-container .allTask .task button:active {
   scale: 0.97;
+}
+#main section.daily-planner-page h1 {
+  font-size: 2.5vw;
+  font-family: normal;
+}
+#main section.daily-planner-page .day-planner {
+  background-color: var(--tri2);
+  height: 80%;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: auto;
+}
+#main section.daily-planner-page .day-planner .day-planner-time {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  width: 49%;
+  margin-bottom: 10px;
+}
+#main section.daily-planner-page .day-planner .day-planner-time p {
+  position: absolute;
+  color: var(--tri1);
+  top: 10%;
+  left: 2%;
+  font-size: 13px;
+}
+#main section.daily-planner-page .day-planner .day-planner-time input {
+  padding: 8px 40px;
+  background-color: var(--sec);
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 20px;
+  padding-top: 28px;
+}
+#main section.motivation-page {
+  position: relative;
+  overflow: auto;
+}
+#main section.motivation-page .motivation-fullpage-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container {
+  width: 80%;
+  border-radius: 10px;
+  background-color: var(--tri2);
+  position: relative;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper {
+  border: 4px solid var(--tri2);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+  padding: 1vw;
+  background-color: var(--tri1);
+  z-index: 1;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-1 h2 {
+  font-size: 2vw;
+  background-color: var(--tri2);
+  font-weight: 500;
+  text-align: right;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 1.2vw;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-2 {
+  padding: 10px;
+  margin-top: 1.3vw;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-2 h1 {
+  font-size: 2.5vw;
+  font-weight: 500;
+  color: var(--sec);
+  font-family: bold;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-3 h2 {
+  font-size: 2vw;
+  margin-top: 1.2vw;
+  background-color: var(--tri2);
+  font-weight: 500;
+  text-align: right;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 1.2vw;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper img {
+  position: absolute;
+  right: 5%;
+  height: 7vw;
+  opacity: 0.2;
+}
+#main section.motivation-page .motivation-fullpage-container .motivational-container::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 10px;
+  background-color: var(--tri1);
+  filter: blur(100px);
+  scale: 1.15;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-43%, -43%);
+}
+#main section.pomodoro-timer-page {
+  position: relative;
+}
+#main section.pomodoro-timer-page h1 {
+  font-size: 3vw;
+  font-weight: 700;
+}
+#main section.pomodoro-timer-page .pomo-timer {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#main section.pomodoro-timer-page .pomo-timer h2 {
+  font-size: 8vw;
+  font-family: bold;
+  font-weight: 500;
+}
+#main section.pomodoro-timer-page .pomo-timer button {
+  background-color: var(--tri2);
+  padding: 8px 22px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  font-size: 1.8vw;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  box-shadow: 5px 5px 0px rgb(0, 0, 0);
+  font-weight: 500;
+}
+#main section.pomodoro-timer-page .pomo-timer button:active {
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+#main section.pomodoro-timer-page h4 {
+  position: absolute;
+  top: 20%;
+  background-color: var(--green);
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 10px 20px;
+  font-size: 1.5vw;
+  border-radius: 5px;
 }
