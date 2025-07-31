@@ -3,7 +3,7 @@
   --sec: #381c0a;
   --tri1: #feba17;
   --tri2: #74512d;
-  --red: red;
+  --red: tomato;
   --green: rgb(9, 138, 89);
   --blue: rgb(0, 191, 225);
   --black: black;
@@ -44,22 +44,23 @@ html {
   padding: 10px 40px;
   display: flex;
   align-items: center;
+  background-color: var(--tri2);
   justify-content: space-between;
 }
 #main nav h2 {
   font-size: 2.5vw;
 }
 #main nav .theme {
-  background-color: #fff;
+  background-color: var(--sec);
   border-radius: 5px;
-  padding: 6px 8px;
+  padding: 8px 8px;
   cursor: pointer;
   transition: all ease 0.2s;
   width: -moz-fit-content;
   width: fit-content;
 }
 #main nav .theme h4 {
-  color: var(--sec);
+  color: var(--pri);
   font-size: 14px;
 }
 #main nav .theme:active {

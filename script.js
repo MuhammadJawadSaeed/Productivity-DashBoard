@@ -181,7 +181,7 @@ function pomodoroTimer() {
           totalSeconds--;
           updateTimer();
         }
-      }, 1000);
+      }, 10);
     } else {
       timeInterval = setInterval(function () {
         if (totalSeconds == 0) {
@@ -195,7 +195,7 @@ function pomodoroTimer() {
           totalSeconds--;
           updateTimer();
         }
-      }, 1000);
+      }, 10);
     }
   }
 
@@ -233,8 +233,6 @@ function weatherFetch() {
         `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
       );
       data = await response.json();
-      console.log(data);
-
       tem.innerHTML = `${Math.floor(data.current.temp_c)}°C`;
       condition.innerHTML = `${data.current.condition.text}`;
       precipitation.innerHTML = `Heat Index: ${data.current.heatindex_c}%`;
@@ -296,3 +294,93 @@ function weatherFetch() {
   }, 1000);
 }
 weatherFetch();
+
+// -------------  theme
+let theme = document.querySelector(".theme");
+let flag = 0;
+
+function currentTheme() {
+  flag = JSON.parse(localStorage.getItem("flag"));
+  console.log(flag);
+  let rootElement = document.documentElement;
+  if (flag == 0) {
+    rootElement.style.setProperty("--pri", "#f8f4e1");
+    rootElement.style.setProperty("--sec", "#381c0a");
+    rootElement.style.setProperty("--tri1", "#feba17");
+    rootElement.style.setProperty("--tri2", "#74512d");
+  } else if (flag == 1) {
+    rootElement.style.setProperty("--pri", "#f1f0ecff");
+    rootElement.style.setProperty("--sec", "#222831");
+    rootElement.style.setProperty("--tri1", "#948979");
+    rootElement.style.setProperty("--tri2", "#393E46");
+  } else if (flag == 2) {
+    rootElement.style.setProperty("--pri", "#E8FFD7");
+    rootElement.style.setProperty("--sec", "#3E5F44");
+    rootElement.style.setProperty("--tri1", "#93DA97");
+    rootElement.style.setProperty("--tri2", "#5E936C");
+  } else if (flag == 3) {
+    rootElement.style.setProperty("--pri", "#DDE6ED");
+    rootElement.style.setProperty("--sec", "#27374D");
+    rootElement.style.setProperty("--tri1", "#9DB2BF");
+    rootElement.style.setProperty("--tri2", "#526D82");
+  } else if (flag == 4) {
+    rootElement.style.setProperty("--pri", "#E7EFC7");
+    rootElement.style.setProperty("--sec", "#3B3B1A");
+    rootElement.style.setProperty("--tri1", "#AEC8A4");
+    rootElement.style.setProperty("--tri2", "#8A784E");
+  } else if (flag == 5) {
+    rootElement.style.setProperty("--pri", "#EDE8DC");
+    rootElement.style.setProperty("--sec", "#B17F59");
+    rootElement.style.setProperty("--tri1", "#C1CFA1");
+    rootElement.style.setProperty("--tri2", "#A5B68D");
+  } else if (flag == 6) {
+    rootElement.style.setProperty("--pri", "#EEEFE0");
+    rootElement.style.setProperty("--sec", "#819A91");
+    rootElement.style.setProperty("--tri1", "#D1D8BE");
+    rootElement.style.setProperty("--tri2", "#A7C1A8");
+  } else if (flag == 7) {
+    rootElement.style.setProperty("--pri", "#F1F0E4");
+    rootElement.style.setProperty("--sec", "#3E3F29");
+    rootElement.style.setProperty("--tri1", "#BCA88D");
+    rootElement.style.setProperty("--tri2", "#7D8D86");
+  }
+}
+currentTheme();
+function changeTheme() {
+  if (flag == 0) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(1));
+    currentTheme();
+  } else if (flag == 1) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(2));
+    currentTheme();
+  } else if (flag == 2) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(3));
+    currentTheme();
+  } else if (flag == 3) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(4));
+    currentTheme();
+  } else if (flag == 4) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(5));
+    currentTheme();
+  } else if (flag == 5) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(6));
+    currentTheme();
+  } else if (flag == 6) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(7));
+    currentTheme();
+  } else if (flag == 7) {
+    localStorage.removeItem("flag");
+    localStorage.setItem("flag", JSON.stringify(0));
+    currentTheme();
+  }
+}
+theme.addEventListener("click", function () {
+  changeTheme();
+});
