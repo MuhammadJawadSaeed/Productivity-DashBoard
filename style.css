@@ -6,6 +6,7 @@
   --red: red;
   --green: rgb(9, 138, 89);
   --blue: rgb(0, 191, 225);
+  --black: black;
 }
 
 @font-face {
@@ -35,19 +36,79 @@ html {
   height: 100%;
   background-color: var(--sec);
 }
-#main section.allElems {
-  height: 100%;
+#main nav {
   width: 100%;
-  padding: 40px;
+  top: 0%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#main nav h2 {
+  font-size: 2.5vw;
+}
+#main nav .theme {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#main nav .theme h4 {
+  color: var(--sec);
+  font-size: 14px;
+}
+#main nav .theme:active {
+  scale: 0.96;
+}
+#main section.allElems {
+  width: 100%;
+  padding: 10px 40px;
   display: flex;
   flex-direction: column;
 }
 #main section.allElems header {
   width: 100%;
-  height: 45%;
+  height: 35%;
   background-color: var(--tri2);
   border-radius: 5px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-image: url(https://images.unsplash.com/photo-1717361279773-b2e7ee713d2e?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+}
+#main section.allElems header .header1 h2 {
+  font-size: 4vw;
+}
+#main section.allElems header .header1 h3 {
+  font-size: 1.8vw;
+  font-weight: 500;
+  opacity: 0.8;
+}
+#main section.allElems header .header1 h4 {
+  font-size: 1.8vw;
+  font-weight: 500;
+  opacity: 0.8;
+}
+#main section.allElems header .header2 h2 {
+  font-size: 5vw;
+}
+#main section.allElems header .header2 h3 {
+  font-size: 2vw;
+  font-weight: 500;
+}
+#main section.allElems header .header2 h4 {
+  font-size: 1.2vw;
+  font-weight: 500;
+  opacity: 0.8;
 }
 #main section.allElems .allFeatures {
   display: flex;
@@ -84,7 +145,7 @@ html {
   scale: 0.97;
 }
 #main section.fullElem {
-  height: 100%;
+  height: 90vh;
   width: 100%;
   background-color: var(--sec);
   padding: 30px;
@@ -169,7 +230,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 20px 2px;
+  padding: 10px 2px;
   width: 100%;
   gap: 10px;
 }
@@ -241,9 +302,9 @@ html {
 }
 #main section.daily-planner-page .day-planner {
   background-color: var(--tri2);
-  height: 80%;
+  height: 70vh;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 5px;
   padding: 20px;
   display: flex;

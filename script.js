@@ -117,16 +117,31 @@ function dailyPlanner() {
 dailyPlanner();
 
 // function motivationalQuote() {
-//   motivationQuoteContent = document.querySelector(".motivation-2 h1");
-//   motivationAuthor = document.querySelector(".motivation-3 h2");
+//   let motivationQuoteContent = document.querySelector(".motivation-2 h1");
+//   let motivationAuthor = document.querySelector(".motivation-3 h2");
+
 //   async function fetchQuote() {
-//     let response = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://type.fit/api/quotes"));
-//     let data = await response.json();
-//     motivationQuoteContent.innerHTML = data.content;
-//     motivationAuthor.innerHTML = data.author;
+//     try {
+//       let response = await fetch(
+//         "https://api.quotable.io/random"
+//       );
+//       let data = await response.json();
+//       console.log(data);
+
+//       // Pick a random quote
+//       let randomIndex = Math.floor(Math.random() * data.length);
+//       let quote = data[randomIndex];
+
+//       motivationQuoteContent.innerHTML = quote.text;
+//       motivationAuthor.innerHTML = quote.author ? quote.author : "Unknown";
+//     } catch (error) {
+//       console.error("Error fetching quote:", error);
+//     }
 //   }
+
 //   fetchQuote();
 // }
+
 // motivationalQuote();
 
 // --------------------------------------      Pomodoro Timer
@@ -197,3 +212,87 @@ function pomodoroTimer() {
   resetBtn.addEventListener("click", resetTimer);
 }
 pomodoroTimer();
+
+// -------------------------------        Weather
+
+function weatherFetch() {
+  let key = " 6792389ce2444454bc5170553253007";
+  let city = "Multan";
+  let data = null;
+  let header1Time = document.querySelector(".header1 h2");
+  let header1Date = document.querySelector(".header1 h3");
+  let tem = document.querySelector(".header2 h2");
+  let condition = document.querySelector(".header2 h3");
+  let precipitation = document.querySelector(".header2 .precipitation");
+  let humidity = document.querySelector(".header2 .humidity");
+  let wind = document.querySelector(".header2 .wind");
+
+  async function weather() {
+    try {
+      let response = await fetch(
+        `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
+      );
+      data = await response.json();
+      console.log(data);
+
+      tem.innerHTML = `${Math.floor(data.current.temp_c)}°C`;
+      condition.innerHTML = `${data.current.condition.text}`;
+      precipitation.innerHTML = `Heat Index: ${data.current.heatindex_c}%`;
+      humidity.innerHTML = `Humidity: ${data.current.humidity}%`;
+      wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
+  }
+  weather();
+  let date = null;
+  function timeDate() {
+    const totalDayOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    date = new Date();
+    let dayOfWeek = totalDayOfWeek[date.getDay()];
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let tarikh = date.getDate();
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+
+    if (hours > 12) {
+      header1Time.innerHTML = `${String(hours - 12).padStart(2, "0")}:${String(
+        minutes
+      ).padStart(2, "0")}:${String(seconds).padStart(2, "0")} pm`;
+    } else {
+      header1Time.innerHTML = `${String(hours).padStart(2, "0")}:${String(
+        minutes
+      ).padStart(2, "0")}:${String(seconds).padStart(2, "0")} am`;
+    }
+    header1Date.innerHTML = `${dayOfWeek}, ${tarikh} ${month}, ${year}`;
+  }
+  setInterval(() => {
+    timeDate();
+  }, 1000);
+}
+weatherFetch();
