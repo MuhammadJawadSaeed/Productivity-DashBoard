@@ -115,34 +115,35 @@ function dailyPlanner() {
   });
 }
 dailyPlanner();
+// --------------------------------         motivational quote
+let motivationQuoteContent = document.querySelector(".motivation-2 h1");
+let motivationAuthor = document.querySelector(".motivation-3 h2");
+function motivationalQuote() {
+  async function fetchQuote() {
+    try {
+      const res = await fetch("quote.json"); // Local fetch
+      const data = await res.json();
+      const random = data[Math.floor(Math.random() * data.length)];
+      localStorage.setItem("dailyQuote", JSON.stringify(random));
+      motivationQuoteContent.innerText = `"${random.content}"`;
+      motivationAuthor.innerText = `-- ${random.author}`;
+    } catch (error) {
+      console.error("Error fetching local quote:", error);
+    }
+  }
 
-// function motivationalQuote() {
-//   let motivationQuoteContent = document.querySelector(".motivation-2 h1");
-//   let motivationAuthor = document.querySelector(".motivation-3 h2");
-
-//   async function fetchQuote() {
-//     try {
-//       let response = await fetch(
-//         "https://api.quotable.io/random"
-//       );
-//       let data = await response.json();
-//       console.log(data);
-
-//       // Pick a random quote
-//       let randomIndex = Math.floor(Math.random() * data.length);
-//       let quote = data[randomIndex];
-
-//       motivationQuoteContent.innerHTML = quote.text;
-//       motivationAuthor.innerHTML = quote.author ? quote.author : "Unknown";
-//     } catch (error) {
-//       console.error("Error fetching quote:", error);
-//     }
-//   }
-
-//   fetchQuote();
-// }
-
-// motivationalQuote();
+  fetchQuote(); // fetch quote on page load
+}
+let dailyQuote = JSON.parse(localStorage.getItem("dailyQuote"));
+if (dailyQuote == null) {
+  motivationalQuote();
+} else {
+  motivationQuoteContent.innerText = `"${dailyQuote.content}"`;
+  motivationAuthor.innerText = `-- ${dailyQuote.author}`;
+}
+setInterval(() => {
+  motivationalQuote();
+}, 86400000);
 
 // --------------------------------------      Pomodoro Timer
 
@@ -301,7 +302,6 @@ let flag = 0;
 
 function currentTheme() {
   flag = JSON.parse(localStorage.getItem("flag"));
-  console.log(flag);
   let rootElement = document.documentElement;
   if (flag == 0) {
     rootElement.style.setProperty("--pri", "#f8f4e1");
@@ -384,3 +384,43 @@ function changeTheme() {
 theme.addEventListener("click", function () {
   changeTheme();
 });
+
+// ---------------------  daily goals
+
+function dailyGoals() {
+  let form = document.querySelector(".addGoal form");
+  let goalInput = document.querySelector("#goal-input");
+  let allGoalsDiv = document.querySelector(".allGoals");
+
+  let dailyGoals = JSON.parse(localStorage.getItem("dailyGoals")) || [];
+
+  function renderGoals() {
+    localStorage.setItem("dailyGoals", JSON.stringify(dailyGoals));
+    let content = "";
+    dailyGoals.forEach((goal, idx) => {
+      content += `
+        <div class="goal">
+          <p>${goal}</p>
+          <button id="${idx}" class="remove-goal">Remove</button>
+        </div>`;
+    });
+    allGoalsDiv.innerHTML = content;
+
+    document.querySelectorAll(".remove-goal").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        dailyGoals.splice(btn.id, 1);
+        renderGoals();
+      });
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    dailyGoals.push(goalInput.value);
+    goalInput.value = "";
+    renderGoals();
+  });
+
+  renderGoals();
+}
+dailyGoals();
