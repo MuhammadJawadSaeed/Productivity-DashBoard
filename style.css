@@ -594,4 +594,8 @@ html {
     height: -moz-fit-content;
     height: fit-content;
   }
+  #main section.fullElem .daily-goals-page .addGoal {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
