@@ -29,15 +29,19 @@ body,
 html {
   width: 100%;
   height: 100%;
+  background-color: var(--sec);
 }
 
 #main {
   width: 100%;
   height: 100%;
   background-color: var(--sec);
+  padding-top: 55px;
 }
 #main nav {
   width: 100%;
+  position: fixed;
+  z-index: 10;
   top: 0%;
   height: -moz-fit-content;
   height: fit-content;
@@ -48,7 +52,7 @@ html {
   justify-content: space-between;
 }
 #main nav h2 {
-  font-size: 2.5vw;
+  font-size: clamp(20px, 3vw, 30px);
 }
 #main nav .theme {
   background-color: var(--sec);
@@ -61,7 +65,7 @@ html {
 }
 #main nav .theme h4 {
   color: var(--pri);
-  font-size: 14px;
+  font-size: clamp(14px, 1.8vw, 18px);
   font-weight: lighter;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -94,27 +98,27 @@ html {
           user-select: none;
 }
 #main section.allElems header .header1 h2 {
-  font-size: 4vw;
+  font-size: clamp(16px, 4vw, 56px);
 }
 #main section.allElems header .header1 h3 {
-  font-size: 1.8vw;
   font-weight: 500;
+  font-size: clamp(14px, 3vw, 20px);
   opacity: 0.8;
 }
 #main section.allElems header .header1 h4 {
-  font-size: 1.8vw;
   font-weight: 500;
   opacity: 0.8;
+  font-size: clamp(14px, 3vw, 20px);
 }
 #main section.allElems header .header2 h2 {
-  font-size: 5vw;
+  font-size: clamp(14px, 4vw, 56px);
 }
 #main section.allElems header .header2 h3 {
-  font-size: 2vw;
+  font-size: clamp(12px, 1.8vw, 18px);
   font-weight: 500;
 }
 #main section.allElems header .header2 h4 {
-  font-size: 1.2vw;
+  font-size: clamp(12px, 1.8vw, 18px);
   font-weight: 500;
   opacity: 0.8;
 }
@@ -126,8 +130,8 @@ html {
 }
 #main section.allElems .allFeatures .elem {
   background-color: var(--tri1);
-  height: 250px;
   width: 230px;
+  height: 250px;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -160,7 +164,7 @@ html {
   display: none;
 }
 #main section.fullElem h1 {
-  font-size: 2.5vw;
+  font-size: clamp(16px, 2vw, 48px);
   color: var(--tri1);
   font-family: normal;
 }
@@ -168,12 +172,13 @@ html {
   position: absolute;
   right: 5%;
   border: none;
-  border-radius: 3px;
-  padding: 6px 8px;
-  font-size: 16px;
-  font-weight: 500;
-  background-color: var(--red);
+  border-radius: 50px;
+  background-color: var(--sec);
   cursor: pointer;
+}
+#main section.fullElem button.back .ri-close-circle-line {
+  font-size: clamp(22px, 3vw, 40px);
+  opacity: 0.5;
 }
 #main section.fullElem button.back:active {
   scale: 0.95;
@@ -266,6 +271,7 @@ html {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 8px;
   background-color: var(--pri);
   padding: 8px 30px;
   border-radius: 3px;
@@ -273,7 +279,7 @@ html {
 }
 #main section.fullElem .todo-container .allTask .task h5 {
   color: var(--sec);
-  font-size: 22px;
+  font-size: clamp(16px, 3vw, 20px);
   display: flex;
   align-items: flex-start;
   gap: 5px;
@@ -292,9 +298,9 @@ html {
   opacity: 0;
 }
 #main section.fullElem .todo-container .allTask .task button {
-  padding: 8px 10px;
+  padding: 8px 8px;
   background-color: green;
-  font-size: 16px;
+  font-size: clamp(10px, 2vw, 16px);
   border-radius: 5px;
   font-weight: 600;
   border: none;
@@ -379,7 +385,7 @@ html {
   justify-content: flex-start;
 }
 #main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-1 h2 {
-  font-size: 2vw;
+  font-size: clamp(14px, 2vw, 18px);
   background-color: var(--tri2);
   font-weight: 500;
   text-align: right;
@@ -393,7 +399,7 @@ html {
   margin-top: 1.3vw;
 }
 #main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-2 h1 {
-  font-size: 2.5vw;
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 500;
   color: var(--sec);
   font-family: bold;
@@ -404,7 +410,7 @@ html {
   justify-content: flex-end;
 }
 #main section.motivation-page .motivation-fullpage-container .motivational-container .motivation-wrapper .motivation-3 h2 {
-  font-size: 2vw;
+  font-size: clamp(14px, 2vw, 18px);
   margin-top: 1.2vw;
   background-color: var(--tri2);
   font-weight: 500;
@@ -438,7 +444,7 @@ html {
   position: relative;
 }
 #main section.pomodoro-timer-page h1 {
-  font-size: 3vw;
+  font-size: clamp(20px, 3vw, 44px);
   font-weight: 700;
 }
 #main section.pomodoro-timer-page .pomo-timer {
@@ -449,7 +455,7 @@ html {
   text-align: center;
 }
 #main section.pomodoro-timer-page .pomo-timer h2 {
-  font-size: 8vw;
+  font-size: clamp(66px, 8vw, 66px);
   font-family: bold;
   font-weight: 500;
 }
@@ -459,7 +465,7 @@ html {
   border-radius: 5px;
   border: none;
   margin: 10px;
-  font-size: 1.8vw;
+  font-size: clamp(16px, 2vw, 22px);
   cursor: pointer;
   transition: all ease 0.1s;
   box-shadow: 5px 5px 0px rgb(0, 0, 0);
@@ -475,6 +481,117 @@ html {
   left: 50%;
   transform: translate(-50%, 0%);
   padding: 10px 20px;
-  font-size: 1.5vw;
+  font-size: clamp(18px, 2vw, 18px);
   border-radius: 5px;
+}
+#main .daily-goals-page .addGoal {
+  width: 33%;
+  background-color: var(--tri2);
+  border-radius: 5px;
+}
+#main .daily-goals-page .addGoal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#main .daily-goals-page .addGoal form input#goal-input {
+  padding: 10px 25px;
+  width: 100%;
+  font-size: 18px;
+  background-color: var(--pri);
+  color: var(--sec);
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+#main .daily-goals-page .addGoal button {
+  padding: 8px 25px;
+  width: 100%;
+  font-size: 16px;
+  background-color: var(--tri1);
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-family: normal;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+#main .daily-goals-page .addGoal button:active {
+  scale: 0.96;
+}
+#main .daily-goals-page .allTask {
+  width: 65%;
+  background-color: var(--tri2);
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  overflow: auto;
+}
+#main .daily-goals-page .allTask .goal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--pri);
+  padding: 8px 30px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+#main .daily-goals-page .allTask .goal p {
+  color: var(--sec);
+  font-size: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+#main .daily-goals-page .allTask .goal p span {
+  font-size: 12px;
+  background-color: var(--red);
+  color: var(--pri);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+#main .daily-goals-page .allTask .goal p span.true {
+  opacity: 1;
+}
+#main .daily-goals-page .allTask .goal p span.false {
+  opacity: 0;
+}
+#main .daily-goals-page .allTask .goal button {
+  padding: 8px 10px;
+  background-color: green;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+#main .daily-goals-page .allTask .goal button:active {
+  scale: 0.97;
+}
+@media (max-width: 1020px) {
+  #main section.allElems .allFeatures .elem {
+    width: 100%;
+  }
+  #main section.fullElem .todo-container {
+    display: block;
+  }
+  #main section.fullElem .todo-container .addTask {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+  #main section.fullElem .todo-container .allTask {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
 }

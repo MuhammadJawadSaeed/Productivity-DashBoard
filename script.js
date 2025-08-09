@@ -182,7 +182,7 @@ function pomodoroTimer() {
           totalSeconds--;
           updateTimer();
         }
-      }, 10);
+      }, 1000);
     } else {
       timeInterval = setInterval(function () {
         if (totalSeconds == 0) {
@@ -196,7 +196,7 @@ function pomodoroTimer() {
           totalSeconds--;
           updateTimer();
         }
-      }, 10);
+      }, 1000);
     }
   }
 
@@ -389,8 +389,8 @@ theme.addEventListener("click", function () {
 
 function dailyGoals() {
   let form = document.querySelector(".addGoal form");
-  let goalInput = document.querySelector("#goal-input");
-  let allGoalsDiv = document.querySelector(".allGoals");
+  let goalInput = document.querySelector(".daily-goals-page #goal-input");
+  let allGoalsDiv = document.querySelector(".daily-goals-page .allTask");
 
   let dailyGoals = JSON.parse(localStorage.getItem("dailyGoals")) || [];
 
